@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organoid: The Future of Bio</title>
+    
+    <style>
+        @font-face {
+            font-family: 'Cafe24Ssurround';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'BMJUA';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'Paperlogy';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Paperlogy';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+
+        /* [색상 변수 정의] */
+        :root {
+            --bg-black: #000000;
+            --text-white: #ffffff;
+            --point-blue: #8cbbe7; /* 요청하신 블루 */
+            --sub-gray: #898c8e;   /* 요청하신 그레이 */
+            --card-bg: #1a1a1a;
+        }
+
+        /* [기본 스타일] */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Paperlogy', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* [네비게이션] */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        .nav-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-family: 'Cafe24Ssurround'; font-size: 24px; color: var(--point-blue); text-decoration: none; }
+        .nav-links a {
+            font-family: 'BMJUA';
+            color: var(--text-white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--point-blue); }
+
+        /* [첫 화면: Hero Section] */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 80px;
+        }
+        .hero-text { flex: 1.2; }
+        .hero-image { flex: 1; text-align: right; }
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            box-shadow: 0 0 50px rgba(140, 187, 231, 0.3);
+        }
+        
+        .hero h1 {
+            font-family: 'Cafe24Ssurround';
+            font-size: 72px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero p {
+            font-size: 22px;
+            color: var(--sub-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .btn-main {
+            font-family: 'BMJUA';
+            background: var(--point-blue);
+            color: var(--text-white);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 22px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-main:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* [섹션 공통] */
+        section { padding: 120px 0; border-bottom: 1px solid #222; }
+        .section-title {
+            font-family: 'Cafe24Ssurround';
+            font-size: 48px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .section-title span { color: var(--point-blue); }
+
+        /* [오가노이드 상세 내용] */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
+        .info-text h3 { font-family: 'BMJUA'; font-size: 32px; margin-bottom: 20px; color: var(--point-blue); }
+        .info-text p { font-size: 18px; color: #ccc; margin-bottom: 15px; }
+        .info-img { border-radius: 20px; overflow: hidden; width: 100%; height: 350px; }
+        .info-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* [바이오 기술 카드] */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .tech-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            transition: 0.3s;
+        }
+        .tech-card:hover { transform: translateY(-10px); background: #222; }
+        .tech-card h4 { font-family: 'BMJUA'; font-size: 24px; margin-bottom: 15px; color: var(--point-blue); }
+        .tech-card p { font-size: 16px; color: #aaa; }
+
+        /* [뉴스/동향 섹션] */
+        .news-box {
+            background: #111;
+            padding: 50px;
+            border-radius: 30px;
+            border-left: 5px solid var(--point-blue);
+        }
+        .news-box ul { list-style: none; }
+        .news-box li { margin-bottom: 20px; font-size: 18px; }
+        .news-box li strong { color: var(--point-blue); display: block; margin-bottom: 5px; }
+
+        footer { padding: 60px 0; text-align: center; color: var(--sub-gray); font-size: 14px; }
+
+        /* [반응형] */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; justify-content: center; }
+            .hero h1 { font-size: 48px; }
+            .hero-image { display: none; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">ORGANOID.LAB</a>
+            <div class="nav-links">
+                <a href="#about">오가노이드</a>
+                <a href="#tech">바이오 기술</a>
+                <a href="#trends">최신 동향</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container hero">
+        <div class="hero-text">
+            <h1>세상에서 가장 작은<br>인간, <span>오가노이드.</span></h1>
+            <p>줄기세포를 3차원 배양하여 실제 장기의 구조와 기능을 완벽하게 모사한 '미니 장기'입니다. 동물 실험을 넘어 개인별 맞춤형 정밀 의료의 시대를 엽니다.</p>
+            <a href="#about" class="btn-main">지금 알아보기</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80" alt="Organoid Visual">
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">생명의 <span>3D 시뮬레이션</span></h2>
+        
+        <div class="info-grid">
+            <div class="info-text">
+                <h3>오가노이드란 무엇인가?</h3>
+                <p>오가노이드(Organoid)는 '장기(Organ)'와 '유사한 것(-oid)'의 합성어입니다. 환자의 줄기세포로부터 만들어진 이 작은 조직체는 실제 심장처럼 박동하거나, 뇌처럼 신경 신호를 전달하며, 위처럼 소화액을 분비합니다.</p>
+                <p>기존 2D 세포 배양이 담지 못했던 세포 간 상호작용과 복잡한 미세환경을 3차원 구조로 재현함으로써 의학 연구의 새로운 지평을 열고 있습니다.</p>
+            </div>
+            <div class="info-img">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80" alt="Lab Research">
+            </div>
+        </div>
+
+        <div class="info-grid" style="direction: rtl;">
+            <div class="info-text" style="direction: ltr;">
+                <h3>왜 오가노이드인가?</h3>
+                <p>동물 실험은 인간과의 유전적 차이로 인해 신약 개발 성공률이 매우 낮습니다(약 8%). 하지만 환자 자신의 세포로 만든 오가노이드는 실제 인체 반응을 90% 이상 정확하게 예측할 수 있습니다.</p>
+                <p>특히 암 환자의 경우, 체외에서 환자의 '아바타'인 종양 오가노이드에 여러 항암제를 미리 테스트하여 가장 효과적인 약물을 찾는 <strong>'정밀 의료'</strong>가 가능해집니다.</p>
+            </div>
+            <div class="info-img">
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80" alt="Biotech Analysis">
+            </div>
+        </div>
+    </section>
+
+    <section id="tech" class="container">
+        <h2 class="section-title">혁신을 이끄는 <span>핵심 기술</span></h2>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h4>줄기세포 (Stem Cell)</h4>
+                <p>오가노이드의 뿌리입니다. 어떤 세포로도 분화할 수 있는 전분화능을 이용해 환자 맞춤형 조직을 생성하는 무한한 재료가 됩니다.</p>
+            </div>
+            <div class="tech-card">
+                <h4>유전자 가위 (CRISPR)</h4>
+                <p>생명의 설계도를 편집합니다. 오가노이드 내의 잘못된 유전 정보를 교정하여 희귀 유전병 치료의 가능성을 검증합니다.</p>
+            </div>
+            <div class="tech-card">
+                <h4>3D 바이오프린팅</h4>
+                <p>세포를 잉크처럼 사용하여 실제 장기의 형태를 층층이 쌓아 올립니다. 혈관망까지 포함된 대형 장기 제작의 핵심입니다.</p>
+            </div>
+            <div class="tech-card">
+                <h4>장기 칩 (Organ-on-a-Chip)</h4>
+                <p>반도체 공정을 이용해 장기 기능을 칩 위에 구현합니다. 혈류와 물리적 자극을 시뮬레이션하여 신약 독성을 정밀 평가합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="trends" class="container">
+        <h2 class="section-title">글로벌 <span>바이오 트렌드</span></h2>
+        <div class="news-box">
+            <ul>
+                <li>
+                    <strong>국가 첨단 전략 산업 지정</strong>
+                    대한민국 정부는 오가노이드를 '국가 첨단 전략 기술'로 지정하고 대전, 충남 등을 중심으로 글로벌 바이오 클러스터를 조성하고 있습니다.
+                </li>
+                <li>
+                    <strong>FDA 동물실험 의무 폐지</strong>
+                    미국 FDA는 신약 승인 시 동물실험 데이터를 오가노이드나 장기 칩 데이터로 대체할 수 있도록 법안을 개정하며 거대한 시장 변화를 예고했습니다.
+                </li>
+                <li>
+                    <strong>재생 의료의 상용화</strong>
+                    단순 연구를 넘어 손상된 장기 부위에 오가노이드를 직접 이식하여 기능을 회복시키는 임상 시험들이 전 세계적으로 활발히 진행 중입니다.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ORGANOID RESEARCH LAB. All Rights Reserved.</p>
+            <p style="margin-top: 10px; color: #444;">GitHub Page Template by Bio-Tech Team</p>
+        </div>
+    </footer>
+
+</body>
+</html>
