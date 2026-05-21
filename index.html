@@ -1,757 +1,948 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORGANOID.SITE — iOS CORE MOODBOARD</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORGANOID.SITE — THE FUTURE OF MEDICINE</title>
 
-    <style>
-        /* --- [iOS Core Boldface Design System] --- */
-        :root {
-            --bg-main: #f8f7f2;
-            --bg-widget: rgba(255,255,255,0.78);
-            --text-primary: #050505;
-            --text-secondary: #3a3a3c;
-            --text-muted: #86868b;
-            --ios-blue: #0a84ff;
-            --folder-blue: #38bdf8;
-            --glass: rgba(255,255,255,0.62);
-            --line-divider: #d2d2d7;
-            --line-subtle: #e5e5ea;
-            --radius-ios: 20px;
-            --radius-sm: 12px;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all; letter-spacing: -0.04em; }
-        html { scroll-behavior: smooth; background-color: var(--bg-main); }
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-secondary);
-            font-family: 'Inter', 'Pretendard', -apple-system, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.5;
-        }
+  <style>
+    :root {
+      --bg-main: #fbfbfd;
+      --bg-widget: #ffffff;
+      --text-primary: #000000;
+      --text-secondary: #3a3a3c;
+      --text-muted: #86868b;
+      --ios-blue: #0071e3;
+      --line-divider: #d2d2d7;
+      --line-subtle: #e5e5ea;
+      --radius-ios: 20px;
+      --radius-sm: 12px;
+    }
 
-        /* --- [Core Boldface Typography] --- */
-        h1, h2, h3, h4 {
-            color: var(--text-primary);
-            font-weight: 900;
-            line-height: 1.1;
-        }
-        
-        .mono-label {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            font-size: 13px;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            letter-spacing: 0.05em;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      word-break: keep-all;
+      letter-spacing: -0.04em;
+    }
 
-        /* --- [Layout Structure] --- */
-        .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-        
-        header {
-            position: fixed; top: 0; width: 100%; height: 60px;
-            display: flex; align-items: center;
-            background: rgba(253, 253, 255, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            z-index: 1000; border-bottom: 1px solid var(--line-subtle);
-        }
-        .header-inner { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-        .logo { font-size: 18px; font-weight: 900; cursor: pointer; color: var(--text-primary); text-transform: uppercase; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 24px; font-weight: 700; transition: color 0.2s; font-size: 14px; }
-        .nav-links a:hover { color: var(--text-primary); }
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-main);
+    }
 
-        /* --- [Hero Section] --- */
-        .hero { padding-top: 150px; padding-bottom: 60px; text-align: left; }
-        .hero-tag { display: inline-block; background: var(--text-primary); color: #fff; padding: 6px 14px; border-radius: 6px; font-weight: 800; font-size: 12px; margin-bottom: 24px; text-transform: uppercase; }
-        .hero h1 { font-size: 72px; margin-bottom: 28px; letter-spacing: -0.05em; }
-        .hero p { font-size: 21px; color: var(--text-secondary); max-width: 760px; line-height: 1.6; font-weight: 500; }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-secondary);
+      font-family: 'Inter', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
 
-        /* Reduced & Fixed Frame Main Image */
-        .image-container-compact {
-            max-width: 680px; margin: 0 left; margin-bottom: 100px;
-            border-radius: var(--radius-ios); overflow: hidden;
-            border: 1px solid var(--line-divider);
-            background: var(--bg-widget); box-shadow: 0 8px 30px rgba(0,0,0,0.03);
-        }
-        .image-container-compact img { width: 100%; height: 380px; object-fit: cover; display: block; }
-        .image-meta { padding: 20px 24px; border-top: 1px solid var(--line-subtle); background: #fff;}
-        .image-meta h3 { font-size: 20px; font-weight: 900; margin-bottom: 4px; }
-        .image-meta p { font-size: 14px; color: var(--text-muted); font-weight: 600; }
+    h1, h2, h3, h4 {
+      color: var(--text-primary);
+      font-weight: 900;
+      line-height: 1.1;
+    }
 
-        /* --- [Grid & Section System] --- */
-        .ios-section { padding: 100px 0 40px 0; border-top: 2px solid var(--text-primary); margin-top: 60px; }
-        .section-header-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
-        .section-header-grid h2 { font-size: 48px; letter-spacing: -0.04em; }
-        .section-header-grid p { font-size: 18px; color: var(--text-secondary); font-weight: 500; padding-top: 8px; line-height: 1.6; }
+    .mono-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      letter-spacing: 0.05em;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
 
-        /* --- [1. Segmented Tabs Layout] --- */
-        .ios-segmented-control {
-            display: flex; background: #e3e3e8; padding: 4px; border-radius: 14px; margin-bottom: 40px; max-width: 600px;
-        }
-        .segment-btn {
-            flex: 1; background: transparent; color: #555559; border: none; padding: 10px 0;
-            border-radius: 10px; font-size: 15px; font-weight: 800; cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .segment-btn.active { background: #fff; color: var(--text-primary); box-shadow: 0px 3px 8px rgba(0,0,0,0.1); }
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        .tab-box {
-            background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios);
-            padding: 48px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-        .tab-box.active { display: block; }
-        .tab-grid-split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start; }
-        .tab-text-area h3 { font-size: 32px; margin-bottom: 20px; letter-spacing: -0.04em; }
-        .tab-text-area p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); font-weight: 500; margin-bottom: 24px; }
-        
-        .ios-action-btn {
-            background: #f2f2f7; color: var(--text-primary); border: none; padding: 12px 20px;
-            border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; transition: all 0.2s;
-            display: inline-flex; align-items: center; gap: 6px;
-        }
-        .ios-action-btn:hover { background: #e5e5ea; }
-        
-        .expand-panel {
-            max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: #fafafa; border-radius: var(--radius-sm); margin-top: 16px; border: 1px dashed var(--line-divider);
-        }
-        .expand-panel.open { max-height: 500px; padding: 24px; }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background: rgba(253, 253, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--line-subtle);
+    }
 
-        .tab-visual-frame { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line-subtle); height: 320px; }
-        .tab-visual-frame img { width: 100%; height: 100%; object-fit: cover; }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+    }
 
-        /* --- [2. Bento Block Grid] --- */
-        .bento-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .bento-card {
-            background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios);
-            padding: 40px 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); transition: transform 0.2s;
-        }
-        .bento-card:hover { transform: translateY(-2px); }
-        .bento-card h3 { font-size: 24px; margin-bottom: 16px; letter-spacing: -0.03em; }
-        .bento-card p { font-size: 15px; line-height: 1.6; color: var(--text-secondary); font-weight: 500; }
+    .logo {
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
 
-        /* --- [3. Structural Accordions] --- */
-        .list-group { background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios); overflow: hidden; }
-        .list-row { border-bottom: 1px solid var(--line-subtle); }
-        .list-row:last-child { border-bottom: none; }
-        .list-trigger {
-            width: 100%; padding: 28px 32px; background: transparent; border: none; text-align: left;
-            display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-        }
-        .list-trigger h3 { font-size: 20px; font-weight: 900; color: var(--text-primary); }
-        .list-arrow { font-size: 20px; font-weight: 700; color: var(--text-muted); transition: transform 0.2s; }
-        .list-row.active .list-arrow { transform: rotate(45deg); color: var(--text-primary); }
-        
-        .list-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 32px; background: #fbfbfd; }
-        .list-row.active .list-content { max-height: 800px; padding-bottom: 32px; padding-top: 8px; }
-        .list-inner-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
-        .list-inner-layout p { font-size: 16px; line-height: 1.7; font-weight: 500; color: var(--text-secondary); }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 700;
+      transition: color 0.2s;
+      font-size: 14px;
+    }
 
-        /* --- [4. Next-Gen Full Showcase Block] --- */
-        .bold-showcase-box {
-            background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios);
-            padding: 50px; margin-bottom: 24px;
-        }
-        .showcase-split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
-        .showcase-text h3 { font-size: 36px; margin-bottom: 18px; }
-        .showcase-text p { font-size: 16px; line-height: 1.7; margin-bottom: 24px; font-weight: 500; }
-        .highlight-badge-box { background: #f2f2f7; padding: 20px; border-radius: var(--radius-sm); border-left: 4px solid var(--text-primary); }
-        .highlight-badge-box p { font-size: 14px; margin: 0; font-weight: 700; color: var(--text-primary); }
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
 
-        .bento-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .wide-card { background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios); padding: 40px; }
-        .wide-card h3 { font-size: 26px; margin-bottom: 16px; }
-        .wide-card p { font-size: 15px; line-height: 1.6; color: var(--text-secondary); font-weight: 500; }
+    .hero {
+      padding-top: 150px;
+      padding-bottom: 60px;
+      text-align: left;
+    }
 
-        /* --- [5. Utilization Quad Matrix] --- */
-        .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        .matrix-cell { background: var(--bg-widget); border: 1px solid var(--line-divider); border-radius: var(--radius-ios); padding: 44px; }
-        .matrix-cell h3 { font-size: 26px; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-        .matrix-cell p { font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin-bottom: 24px; font-weight: 500; }
-        .matrix-cell ul { list-style: none; border-top: 1px solid var(--line-subtle); padding-top: 20px; }
-        .matrix-cell li { font-size: 14px; line-height: 1.6; margin-bottom: 16px; color: var(--text-secondary); font-weight: 600; padding-left: 14px; position: relative;}
-        .matrix-cell li::before { content: "■"; font-size: 8px; color: var(--text-primary); position: absolute; left: 0; top: 5px; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--text-primary);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
 
-        /* --- [Footer Layout] --- */
-        footer { padding: 80px 0; border-top: 1px solid var(--line-divider); margin-top: 100px; text-align: left; }
-        footer .logo { margin-bottom: 16px; display: block; }
-        footer p { font-size: 13px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
+    .hero h1 {
+      font-size: 72px;
+      margin-bottom: 28px;
+      letter-spacing: -0.05em;
+    }
 
-        /* --- [iOS Core Moodboard Layer] --- */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            background-image:
-                linear-gradient(rgba(0,0,0,0.10) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,0,0,0.10) 1px, transparent 1px);
-            background-size: 148px 184px;
-            opacity: 0.65;
-        }
+    .hero p {
+      font-size: 21px;
+      color: var(--text-secondary);
+      max-width: 760px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
 
-        .ios-topbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 18px;
-            background: rgba(248,247,242,0.72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            z-index: 1200;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            font-size: 12px;
-            font-weight: 800;
-            color: #111;
-        }
-        .ios-topbar .menu { display: flex; gap: 18px; align-items: center; }
-        .ios-topbar .status { display: flex; gap: 12px; align-items: center; }
+    .image-container-compact {
+      max-width: 680px;
+      margin: 0 0 100px 0;
+      border-radius: var(--radius-ios);
+      overflow: hidden;
+      border: 1px solid var(--line-divider);
+      background: var(--bg-widget);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+    }
 
-        #ios-header { top: 28px; height: 58px; }
-        .hero { position: relative; min-height: 650px; padding-top: 170px; overflow: visible; }
-        .hero h1 { font-size: clamp(64px, 10vw, 148px); line-height: 0.84; letter-spacing: -0.085em; position: relative; z-index: 2; }
-        .hero p { position: relative; z-index: 2; max-width: 720px; background: rgba(248,247,242,0.72); backdrop-filter: blur(6px); padding: 10px 0; }
-        .hero-tag { position: relative; z-index: 3; border-radius: 999px; background: #050505; }
+    .image-container-compact img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
 
-        .selected-word {
-            display: inline-block;
-            color: #17324d;
-            background: rgba(10,132,255,0.18);
-            outline: 4px solid #0a84ff;
-            outline-offset: -4px;
-            padding: 0 0.08em 0.04em 0.04em;
-            position: relative;
-        }
-        .selected-word::before,
-        .selected-word::after {
-            content: "";
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #0a84ff;
-            left: -9px;
-        }
-        .selected-word::before { top: -9px; }
-        .selected-word::after { bottom: -9px; }
-        .pixel-word {
-            font-family: "Courier New", monospace;
-            font-weight: 900;
-            letter-spacing: -0.12em;
-            font-size: 0.48em;
-            margin-left: 0.12em;
-            color: #000;
-            vertical-align: 0.12em;
-        }
+    .image-meta {
+      padding: 20px 24px;
+      border-top: 1px solid var(--line-subtle);
+      background: #fff;
+    }
 
-        .desktop-layer { position: absolute; inset: 86px 0 0 0; pointer-events: none; z-index: 1; }
-        .floating-ui {
-            position: absolute;
-            background: var(--glass);
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 16px 60px rgba(0,0,0,0.10);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-            border-radius: 18px;
-            color: #111;
-        }
-        .context-pill {
-            left: 190px; top: 20px;
-            background: rgba(18,18,18,0.90);
-            color: #fff;
-            border-radius: 8px;
-            padding: 8px 12px;
-            display: flex;
-            gap: 22px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-        .notify-card {
-            right: 34px; top: 34px;
-            width: 270px;
-            padding: 14px 16px;
-            display: grid;
-            grid-template-columns: 34px 1fr;
-            gap: 12px;
-            align-items: start;
-        }
-        .notify-icon { width: 34px; height: 34px; border-radius: 9px; background: #0a84ff; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; }
-        .notify-card strong { display:block; font-size: 13px; line-height: 1.1; margin-bottom: 4px; }
-        .notify-card span { font-size: 11px; color: #5f6368; font-weight: 700; line-height: 1.35; display:block; }
-        .folder {
-            position: absolute;
-            width: 86px;
-            height: 62px;
-            background: linear-gradient(#67d4ff, #29a8f0);
-            border-radius: 8px 8px 13px 13px;
-            box-shadow: inset 0 1px rgba(255,255,255,0.7), 0 12px 28px rgba(0,0,0,0.14);
-        }
-        .folder::before {
-            content:"";
-            position:absolute;
-            left: 9px; top: -10px;
-            width: 42px; height: 14px;
-            border-radius: 8px 8px 0 0;
-            background: #67d4ff;
-        }
-        .folder-label { position: absolute; top: 72px; width: 150px; left: 50%; transform: translateX(-50%); text-align:center; font-size: 16px; font-weight: 900; color: #111; }
-        .folder.one { right: 98px; top: 210px; }
-        .folder.two { right: 320px; top: 10px; transform: scale(0.75); }
-        .small-panel {
-            right: 72px; top: 346px;
-            width: 180px;
-            padding: 14px;
-            border-radius: 20px;
-        }
-        .small-panel .row { height: 26px; display:flex; align-items:center; justify-content:space-between; font-size:12px; font-weight:800; border-bottom:1px solid rgba(0,0,0,0.08); }
-        .small-panel .row:last-child { border-bottom: 0; }
-        .ios-dialog {
-            left: 48%; top: 338px;
-            width: 270px;
-            transform: translateX(-50%);
-            padding: 17px 18px 14px;
-            text-align: center;
-            border-radius: 16px;
-        }
-        .ios-dialog strong { font-size: 13px; display:block; margin-bottom: 6px; }
-        .ios-dialog span { font-size: 11px; color:#555; line-height:1.35; font-weight:700; display:block; margin-bottom: 12px; }
-        .dialog-actions { display:grid; grid-template-columns:1fr 1fr; gap:0; border-top:1px solid rgba(0,0,0,0.08); }
-        .dialog-actions button { border:0; background:transparent; padding:9px 0 0; color:#0a84ff; font-weight:800; }
-        .hero-note {
-            position: absolute;
-            right: 135px;
-            bottom: 54px;
-            font-size: 15px;
-            font-weight: 900;
-            color: #111;
-        }
-        .hero-note .big { display:block; font-size: 52px; letter-spacing:-0.09em; line-height:0.8; }
-        .command-line {
-            position: absolute;
-            left: 520px;
-            top: 368px;
-            font-family: "Courier New", monospace;
-            color: #0a84ff;
-            font-weight: 900;
-            font-size: 15px;
-        }
+    .image-meta h3 {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
 
-        .image-container-compact { position: relative; transform: translateY(-110px); margin-bottom: 10px; max-width: 640px; }
-        .image-container-compact::after {
-            content: "Photos would like to send you notifications";
-            position: absolute;
-            right: -110px;
-            bottom: 58px;
-            width: 238px;
-            padding: 16px 18px;
-            background: rgba(255,255,255,0.72);
-            border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.10);
-            backdrop-filter: blur(18px);
-            border-radius: 16px;
-            color: #111;
-            font-size: 12px;
-            font-weight: 900;
-            text-align: center;
-            line-height: 1.25;
-        }
+    .image-meta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
 
-        .ios-section { border-top: 1px solid rgba(0,0,0,0.18); }
-        .tab-box, .bento-card, .list-group, .bold-showcase-box, .wide-card, .matrix-cell, .image-container-compact {
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            box-shadow: 0 18px 60px rgba(0,0,0,0.055);
-        }
-        .mono-label::before { content: "⌘ "; color: var(--ios-blue); }
-        .bento-card h3::first-line, .wide-card h3::first-line, .matrix-cell h3::first-line { color: #000; }
+    .ios-section {
+      padding: 100px 0 40px;
+      border-top: 2px solid var(--text-primary);
+      margin-top: 60px;
+    }
 
-        /* --- [Responsive Behavior] --- */
-        @media (max-width: 900px) {
-            h1 { font-size: 44px; }
-            .section-header-grid { grid-template-columns: 1fr; gap: 16px; }
-            .section-header-grid h2 { font-size: 36px; }
-            .grid-3, .bento-grid-3, .bento-grid-2, .matrix-grid, .tab-grid-split, .list-inner-layout, .showcase-split { grid-template-columns: 1fr; }
-            .image-container-compact { max-width: 100%; }
-            .image-container-compact img { height: 260px; }
-            .tab-box { padding: 24px; }
-            .nav-links { display: none; }
-            .ios-topbar .menu span:nth-child(n+4) { display:none; }
-            .desktop-layer { opacity: 0.45; transform: scale(0.75); transform-origin: top right; }
-            .notify-card, .small-panel, .folder.one { right: 18px; }
-            .context-pill { left: 18px; top: 18px; }
-            .ios-dialog { display:none; }
-            .command-line { display:none; }
-            .hero-note { right: 24px; bottom: 10px; }
-            .image-container-compact { transform: none; }
-            .image-container-compact::after { display:none; }
-        }
-    </style>
+    .section-header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .section-header-grid h2 {
+      font-size: 48px;
+      letter-spacing: -0.04em;
+    }
+
+    .section-header-grid p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      padding-top: 8px;
+      line-height: 1.6;
+    }
+
+    .ios-segmented-control {
+      display: flex;
+      background: #e3e3e8;
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .segment-btn {
+      flex: 1;
+      background: transparent;
+      color: #555559;
+      border: none;
+      padding: 10px 0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .segment-btn.active {
+      background: #fff;
+      color: var(--text-primary);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-box {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      padding: 48px;
+      display: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .tab-box.active {
+      display: block;
+    }
+
+    .tab-grid-split {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .tab-text-area h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
+
+    .tab-text-area p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .ios-action-btn {
+      background: #f2f2f7;
+      color: var(--text-primary);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ios-action-btn:hover {
+      background: #e5e5ea;
+    }
+
+    .expand-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+      background: #fafafa;
+      border-radius: var(--radius-sm);
+      margin-top: 16px;
+      border: 1px dashed var(--line-divider);
+    }
+
+    .expand-panel.open {
+      max-height: 500px;
+      padding: 24px;
+    }
+
+    .tab-visual-frame {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--line-subtle);
+      height: 320px;
+    }
+
+    .tab-visual-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bento-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      padding: 40px 32px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+      transition: transform 0.2s;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .bento-card h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .bento-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .list-group {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      overflow: hidden;
+    }
+
+    .list-row {
+      border-bottom: 1px solid var(--line-subtle);
+    }
+
+    .list-row:last-child {
+      border-bottom: none;
+    }
+
+    .list-trigger {
+      width: 100%;
+      padding: 28px 32px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      gap: 20px;
+    }
+
+    .list-trigger h3 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text-primary);
+    }
+
+    .list-arrow {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .list-row.active .list-arrow {
+      transform: rotate(45deg);
+      color: var(--text-primary);
+    }
+
+    .list-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      padding: 0 32px;
+      background: #fbfbfd;
+    }
+
+    .list-row.active .list-content {
+      max-height: 900px;
+      padding-bottom: 32px;
+      padding-top: 8px;
+    }
+
+    .list-inner-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .list-inner-layout p {
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .bold-showcase-box {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      padding: 50px;
+      margin-bottom: 24px;
+    }
+
+    .showcase-split {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .showcase-text h3 {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .showcase-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .highlight-badge-box {
+      background: #f2f2f7;
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--text-primary);
+    }
+
+    .highlight-badge-box p {
+      font-size: 14px;
+      margin: 0;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .bento-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .wide-card {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      padding: 40px;
+    }
+
+    .wide-card h3 {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+
+    .wide-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .matrix-cell {
+      background: var(--bg-widget);
+      border: 1px solid var(--line-divider);
+      border-radius: var(--radius-ios);
+      padding: 44px;
+    }
+
+    .matrix-cell h3 {
+      font-size: 26px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .matrix-cell p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .matrix-cell ul {
+      list-style: none;
+      border-top: 1px solid var(--line-subtle);
+      padding-top: 20px;
+    }
+
+    .matrix-cell li {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .matrix-cell li::before {
+      content: "■";
+      font-size: 8px;
+      color: var(--text-primary);
+      position: absolute;
+      left: 0;
+      top: 5px;
+    }
+
+    footer {
+      padding: 80px 0;
+      border-top: 1px solid var(--line-divider);
+      margin-top: 100px;
+      text-align: left;
+    }
+
+    footer .logo {
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section-header-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .section-header-grid h2 {
+        font-size: 36px;
+      }
+
+      .bento-grid-3,
+      .bento-grid-2,
+      .matrix-grid,
+      .tab-grid-split,
+      .list-inner-layout,
+      .showcase-split {
+        grid-template-columns: 1fr;
+      }
+
+      .image-container-compact {
+        max-width: 100%;
+      }
+
+      .image-container-compact img {
+        height: 260px;
+      }
+
+      .tab-box,
+      .bold-showcase-box,
+      .wide-card,
+      .matrix-cell {
+        padding: 24px;
+      }
+
+      .ios-segmented-control {
+        overflow-x: auto;
+      }
+
+      .segment-btn {
+        min-width: 130px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body>
 
-    <div class="ios-topbar">
-        <div class="menu"><strong>●</strong><span>Finder</span><span>File</span><span>Edit</span><span>View</span><span>Window</span><span>Help</span></div>
-        <div class="status"><span>⌕</span><span>Wi‑Fi</span><span>Tue 5:34 AM</span></div>
+<body>
+  <header id="ios-header">
+    <div class="container header-inner">
+      <div class="logo" onclick="window.scrollTo(0, 0)">ORGANOID.SITE</div>
+      <nav class="nav-links">
+        <a href="#atlas">01. ATLAS MAP</a>
+        <a href="#engineering">02. ENGINEERING</a>
+        <a href="#experiments">03. IN ACTION</a>
+        <a href="#newtech">04. NEXT-GEN</a>
+        <a href="#proposals">05. UTILIZATION</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <span class="hero-tag">THE END OF ANIMAL TESTING, THE DAWN OF AVATAR MEDICINE</span>
+    <h1>LIFE,<br />RECONSTRUCTED.</h1>
+    <p>2022년 미국 FDA의 동물실험 의무화 폐지(FDA Modernization Act 2.0)와 함께 생명공학의 패러다임이 전환되었습니다. 인류의 장기를 플라스틱 배양 접시 위에서 완벽히 재현한 3차원 아바타, <strong>오가노이드(Organoid)</strong>를 소개합니다.</p>
+  </section>
+
+  <div class="container">
+    <div class="image-container-compact">
+      <img src="image_0cc438.jpg" alt="Human Organoids Map in a well plate" onerror="this.src='https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80'" />
+      <div class="image-meta">
+        <h3>IN VITRO GENESIS</h3>
+        <p>세포 수십만 개가 스스로 조립되어 만들어낸 1~3mm 크기의 초미니 인체 장기</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="atlas" class="container ios-section">
+    <div class="section-header-grid">
+      <div>
+        <span class="mono-label">[01 / INDEX MAP]</span>
+        <h2>THE HUMAN<br />ORGANOIDS MAP.</h2>
+      </div>
+      <div>
+        <p>다양한 장기 오가노이드의 구조적 특징과 핵심 연구 분야를 탐색해 보세요.</p>
+      </div>
     </div>
 
+    <div class="ios-segmented-control">
+      <button class="segment-btn active" onclick="openSegment('brain', this)">CEREBRAL (뇌)</button>
+      <button class="segment-btn" onclick="openSegment('liver', this)">HEPATIC (간)</button>
+      <button class="segment-btn" onclick="openSegment('gut', this)">INTESTINAL (장)</button>
+      <button class="segment-btn" onclick="openSegment('tumor', this)">TUMOROID (암)</button>
+    </div>
 
-    <header id="ios-header">
-        <div class="container header-inner">
-            <div class="logo" onclick="window.scrollTo(0,0)">ORGANOID.SITE</div>
-            <nav class="nav-links">
-                <a href="#atlas">01. ATLAS MAP</a>
-                <a href="#engineering">02. ENGINEERING</a>
-                <a href="#experiments">03. IN ACTION</a>
-                <a href="#newtech">04. NEXT-GEN</a>
-                <a href="#proposals">05. UTILIZATION</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero container">
-        <span class="hero-tag">THE END OF ANIMAL TESTING, THE DAWN OF AVATAR MEDICINE</span>
-        <h1>What is<br><span class="selected-word">ORGANOID</span><span class="pixel-word">Core?</span></h1>
-        <div class="desktop-layer" aria-hidden="true">
-            <div class="floating-ui context-pill"><span>Cut</span><span>Copy</span><span>Look Up</span><span>Translate</span></div>
-            <div class="floating-ui notify-card"><div class="notify-icon">Ps</div><div><strong>Design life</strong><span>Organoid Core has new research notes ready.</span></div></div>
-            <div class="folder one"><span class="folder-label">final atlas</span></div>
-            <div class="folder two"><span class="folder-label">lab files</span></div>
-            <div class="floating-ui small-panel"><div class="row"><span>Wi‑Fi</span><strong>On</strong></div><div class="row"><span>Bluetooth</span><strong>Off</strong></div><div class="row"><span>AirDrop</span><strong>Contacts</strong></div></div>
-            <div class="floating-ui ios-dialog"><strong>“Organoid.Site” Would Like to Open Core Notes</strong><span>구조, 실험, 활용 계획을 하나의 iOS-style interface로 정리합니다.</span><div class="dialog-actions"><button>Cancel</button><button>Allow</button></div></div>
-            <div class="command-line">_+(-_+)_ ____ [++__==]</div>
-            <div class="hero-note"><span>study</span><span class="big">read</span></div>
+    <div id="brain" class="tab-box active">
+      <div class="tab-grid-split">
+        <div class="tab-text-area">
+          <h3>대뇌피질의 완벽한 3D 모사</h3>
+          <p>인간 배아줄기세포나 유도만능줄기세포(iPSC)를 신경외배엽으로 유도한 뒤, 약 3~6개월간 특수 배양액에서 키워냅니다. 놀랍게도 이 과정에서 세포들은 스스로 임신 20주 차 태아 수준의 대뇌피질 6개 층(Cortical Layers) 구조를 형성하며, 실제 뇌파(EEG)와 유사한 신경망 전기 신호를 방출합니다.</p>
+          <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
+          <div class="expand-panel">
+            <p style="font-weight:800; margin-bottom:8px; color:var(--text-primary);">[딥다이브: 바이러스와 뇌 질환 규명]</p>
+            <p style="font-size:14px; color:var(--text-secondary);">과거 지카 바이러스(Zika Virus)가 어떻게 소두증을 유발하는지 쥐 실험으로는 증명할 수 없었습니다. 쥐의 뇌와 인간의 뇌는 구조가 너무 달랐기 때문입니다. 하지만 <strong>뇌 오가노이드</strong>에 지카 바이러스를 감염시키자, 바이러스가 인간의 뇌 신경전구세포(NPCs)만을 골라 파괴하여 뇌의 크기가 쪼그라드는 과정을 시각적으로 완벽히 증명해 냈습니다. 현재는 알츠하이머의 핵심 원인인 아밀로이드 베타 플라크 축적 과정을 연구하는 데 핵심적으로 쓰이고 있습니다.</p>
+          </div>
         </div>
+        <div class="tab-visual-frame">
+          <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/190/800/500'" alt="Brain mapping" />
+        </div>
+      </div>
+    </div>
 
-        <p>2022년 미국 FDA의 동물실험 의무화 폐지(FDA Modernization Act 2.0)와 함께 생명공학의 패러다임이 전환되었습니다. 인류의 장기를 플라스틱 배양 접시 위에서 완벽히 재현한 3차원 아바타, <strong>오가노이드(Organoid)</strong>를 소개합니다.</p>
-    </section>
+    <div id="liver" class="tab-box">
+      <div class="tab-grid-split">
+        <div class="tab-text-area">
+          <h3>신약 독성(DILI) 스크리닝의 최전선</h3>
+          <p>간은 인체의 '화학 공장'으로, 모든 약물은 간에서 대사됩니다. 동물 실험을 무사히 통과한 수천억 원대 신약들이 임상 3상에서 사람에게 치명적인 간 독성(Drug-Induced Liver Injury)을 일으켜 퇴출당하는 일이 빈번합니다. 간 오가노이드는 인간 특유의 약물 대사 효소(Cytochrome P450)를 활성화 상태로 지니고 있어 이를 사전에 방지합니다.</p>
+          <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
+          <div class="expand-panel">
+            <p style="font-weight:800; margin-bottom:8px; color:var(--text-primary);">[딥다이브: 지방간 및 대사 질환 모델링]</p>
+            <p style="font-size:14px; color:var(--text-secondary);">정상적인 간 오가노이드 배양액에 과도한 유리 지방산(FFA)과 당분을 인위적으로 주입합니다. 그러면 며칠 내로 오가노이드 내부에 지방 방울이 축적되며 비알코올성 지방간(NAFLD)에서 간경화, 간암으로 서서히 굳어가는 과정을 실시간 모니터링할 수 있습니다. 연구진은 이 상태의 오가노이드에 수천 개의 후보 약물을 투여해 증상을 되돌릴 '간경화 치료 억제제'를 스크리닝하고 있습니다.</p>
+          </div>
+        </div>
+        <div class="tab-visual-frame">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/250/800/500'" alt="Microscope" />
+        </div>
+      </div>
+    </div>
 
-    <div class="container" style="text-align: left;">
-        <div class="image-container-compact">
-            <img src="image_0cc438.jpg" alt="Human Organoids Map in a well plate" onerror="this.src='https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80'">
-            <div class="image-meta">
-                <h3>IN VITRO GENESIS <span style="color:#0a84ff; font-size:14px; vertical-align:middle;">●</span></h3>
-                <p>세포 수십만 개가 스스로 조립되어 만들어낸 1~3mm 크기의 초미니 인체 장기</p>
-            </div>
-        </div>
-    </div>
+    <div id="gut" class="tab-box">
+      <div class="tab-grid-split">
+        <div class="tab-text-area">
+          <h3>제2의 뇌, 마이크로바이옴 연구의 키</h3>
+          <p>장 오가노이드는 실제 인간의 장벽처럼 구불구불한 융모(Villi)와 음와(Crypt) 구조를 입체적으로 갖추고 있습니다. 영양분이 흡수되는 표면적 기전뿐만 아니라, 크론병이나 궤양성 대장염 같은 염증성 장 질환(IBD)의 발병 원인을 환자 본인의 줄기세포로 만든 장 오가노이드로 추적할 수 있습니다.</p>
+          <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
+          <div class="expand-panel">
+            <p style="font-weight:800; margin-bottom:8px; color:var(--text-primary);">[딥다이브: 유산균과의 공배양(Co-culture)]</p>
+            <p style="font-size:14px; color:var(--text-secondary);">인체 면역 세포의 70%는 장에 분포하며, 장내 미생물(Microbiome)과 끊임없이 소통합니다. 기존 평면 세포 배양에서는 장내 혐기성 세균(산소를 싫어하는 세균)을 배양할 수 없었으나, 3D 장 오가노이드 내부의 빈 공간(Lumen)은 산소가 차단된 환경이므로 실제 인간의 장처럼 유해균과 유익균을 주입하여 장벽 면역 반응을 90% 이상 유사하게 시뮬레이션 해냅니다.</p>
+          </div>
+        </div>
+        <div class="tab-visual-frame">
+          <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/350/800/500'" alt="Petri dish" />
+        </div>
+      </div>
+    </div>
 
-    <section id="atlas" class="container ios-section">
-        <div class="section-header-grid">
-            <div>
-                <span class="mono-label">[01 / INDEX MAP]</span>
-                <h2>THE HUMAN<br>ORGANOIDS MAP.</h2>
-            </div>
-            <div>
-                <p>다양한 장기 오가노이드의 구조적 특징과 핵심 연구 분야를 탐색해 보세요.</p>
-            </div>
-        </div>
+    <div id="tumor" class="tab-box">
+      <div class="tab-grid-split">
+        <div class="tab-text-area">
+          <h3>암 정복을 위한 환자 유래 아바타 (PDO)</h3>
+          <p>수술이나 생검을 통해 채취한 환자의 실제 암 조직은 단 몇 주 만에 환자의 유전자 변이를 100% 보존한 '환자 유래 종양 오가노이드(Patient-Derived Organoid, PDO)'로 자라납니다. 이는 항암 치료 전, 환자에게 가장 부작용이 적고 잘 듣는 '단 하나의 표적 약'을 찾는 N-of-1(개인 맞춤) 의료의 핵심입니다.</p>
+          <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
+          <div class="expand-panel">
+            <p style="font-weight:800; margin-bottom:8px; color:var(--text-primary);">[딥다이브: 면역 항암제 반응성 사전 예측]</p>
+            <p style="font-size:14px; color:var(--text-secondary);">기존 항암제가 암세포를 직접 죽인다면, 3세대 면역항암제(키트루다 등)는 환자의 면역세포를 활성화해 암을 공격하게 합니다. 하지만 환자별로 반응률이 20~30%에 불과하고 매우 고가입니다. 최근 연구진은 종양 오가노이드에 환자 본인의 T세포(면역세포)를 함께 배양하여, 면역항암제가 이 환자에게 효과가 있을지를 임상 투여 전 단 1주일 만에 정확히 사전 검증하는 데 성공했습니다.</p>
+          </div>
+        </div>
+        <div class="tab-visual-frame">
+          <img src="https://images.unsplash.com/photo-1579566346927-c68383817a25?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/450/800/500'" alt="DNA" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="ios-segmented-control">
-            <button class="segment-btn active" onclick="openSegment('brain')">CEREBRAL (뇌)</button>
-            <button class="segment-btn" onclick="openSegment('liver')">HEPATIC (간)</button>
-            <button class="segment-btn" onclick="openSegment('gut')">INTESTINAL (장)</button>
-            <button class="segment-btn" onclick="openSegment('tumor')">TUMOROID (암)</button>
-        </div>
+  <section id="engineering" class="container ios-section">
+    <div class="section-header-grid">
+      <div>
+        <span class="mono-label">[02 / BASE ARCHITECTURE]</span>
+        <h2>THE ENGINEERING<br />OF COMPLEXITY.</h2>
+      </div>
+      <div>
+        <p>2차원의 평면 세포를 3차원의 생명체로 조각하는 3대 핵심 바이오 엔지니어링 기술</p>
+      </div>
+    </div>
 
-        <div id="brain" class="tab-box active">
-            <div class="tab-grid-split">
-                <div class="tab-text-area">
-                    <h3>대뇌피질의 완벽한 3D 모사</h3>
-                    <p>인간 배아줄기세포나 유도만능줄기세포(iPSC)를 신경외배엽으로 유도한 뒤, 약 3~6개월간 특수 배양액에서 키워냅니다. 놀랍게도 이 과정에서 세포들은 스스로 임신 20주 차 태아 수준의 대뇌피질 6개 층(Cortical Layers) 구조를 형성하며, 실제 뇌파(EEG)와 유사한 신경망 전기 신호를 방출합니다.</p>
-                    <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
-                    <div class="expand-panel">
-                        <p style="font-weight: 800; margin-bottom: 8px; color: var(--text-primary);">[딥다이브: 바이러스와 뇌 질환 규명]</p>
-                        <p style="font-size: 14px; color: var(--text-secondary);">과거 지카 바이러스(Zika Virus)가 어떻게 소두증을 유발하는지 쥐 실험으로는 증명할 수 없었습니다. 쥐의 뇌와 인간의 뇌는 구조가 너무 달랐기 때문입니다. 하지만 <strong>뇌 오가노이드</strong>에 지카 바이러스를 감염시키자, 바이러스가 인간의 뇌 신경전구세포(NPCs)만을 골라 파괴하여 뇌의 크기가 쪼그라드는 과정을 시각적으로 완벽히 증명해 냈습니다. 현재는 알츠하이머의 핵심 원인인 아밀로이드 베타 플라크 축적 과정을 연구하는 데 핵심적으로 쓰이고 있습니다.</p>
-                    </div>
-                </div>
-                <div class="tab-visual-frame">
-                    <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/190/800/500'" alt="Brain mapping">
-                </div>
-            </div>
-        </div>
+    <div class="bento-grid-3">
+      <div class="bento-card">
+        <h3>iPSCs<br />(유도만능줄기세포)</h3>
+        <p>2012년 노벨 생리의학상을 받은 야마나카 신야 교수의 기술입니다. 성인의 평범한 피부나 혈액 세포에 4가지 유전자 전사인자(Oct4, Sox2, Klf4, c-Myc)를 주입해 세포 시계를 배아 상태로 되돌립니다. 윤리적 문제 없이 뇌, 간, 심장 등 원하는 어떤 장기로든 무한정 분화시킬 수 있는 오가노이드의 절대적인 '원재료'입니다.</p>
+      </div>
+      <div class="bento-card">
+        <h3>Matrigel & ECM</h3>
+        <p>배양 접시 위에서 세포들이 평면으로 퍼지지 않고 둥글게 뭉쳐 입체적으로 자라게 하려면 단단한 지지체가 필요합니다. 라미닌(Laminin)과 콜라겐(Collagen) 등 인체의 세포 외 기질(ECM)과 완벽히 동일한 환경을 젤리 형태로 제공하는 '마트리겔(Matrigel)'이 세포의 3차원 조직화를 유도하는 뼈대 역할을 합니다.</p>
+      </div>
+      <div class="bento-card">
+        <h3>Dynamic<br />Bioreactors</h3>
+        <p>오가노이드가 1mm 이상 커지면 중심부의 세포는 산소와 영양분을 공급받지 못해 괴사합니다. 이를 막기 위해 지속적으로 회전하는 스피닝 플라스크(Spinning Flask)나 미세 유체 칩을 기반으로 한 바이오리엑터에 넣어 배양합니다. 이는 인체 내 혈류가 흐르면서 발생하는 물리적 전단 응력(Shear stress)을 모사하여 장기의 성숙도를 극대화합니다.</p>
+      </div>
+    </div>
+  </section>
 
-        <div id="liver" class="tab-box">
-            <div class="tab-grid-split">
-                <div class="tab-text-area">
-                    <h3>신약 독성(DILI) 스크리닝의 최전선</h3>
-                    <p>간은 인체의 '화학 공장'으로, 모든 약물은 간에서 대사됩니다. 동물 실험을 무사히 통과한 수천억 원대 신약들이 임상 3상에서 사람에게 치명적인 간 독성(Drug-Induced Liver Injury)을 일으켜 퇴출당하는 일이 빈번합니다. 간 오가노이드는 인간 특유의 약물 대사 효소(Cytochrome P450)를 활성화 상태로 지니고 있어 이를 사전에 방지합니다.</p>
-                    <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
-                    <div class="expand-panel">
-                        <p style="font-weight: 800; margin-bottom: 8px; color: var(--text-primary);">[딥다이브: 지방간 및 대사 질환 모델링]</p>
-                        <p style="font-size: 14px; color: var(--text-secondary);">정상적인 간 오가노이드 배양액에 과도한 유리 지방산(FFA)과 당분을 인위적으로 주입합니다. 그러면 며칠 내로 오가노이드 내부에 지방 방울이 축적되며 비알코올성 지방간(NAFLD)에서 간경화, 간암으로 서서히 굳어가는 과정을 실시간 모니터링할 수 있습니다. 연구진은 이 상태의 오가노이드에 수천 개의 후보 약물을 투여해 증상을 되돌릴 '간경화 치료 억제제'를 스크리닝하고 있습니다.</p>
-                    </div>
-                </div>
-                <div class="tab-visual-frame">
-                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/250/800/500'" alt="Microscope">
-                </div>
-            </div>
-        </div>
+  <section id="experiments" class="container ios-section">
+    <div class="section-header-grid">
+      <div>
+        <span class="mono-label">[03 / LAB EVIDENCE]</span>
+        <h2>EXPERIMENTS<br />IN ACTION.</h2>
+      </div>
+      <div>
+        <p>현재 전 세계 최상위 연구소(Nature, Cell 게재 등)에서 증명된 경이로운 실험 사례들</p>
+      </div>
+    </div>
 
-        <div id="gut" class="tab-box">
-            <div class="tab-grid-split">
-                <div class="tab-text-area">
-                    <h3>제2의 뇌, 마이크로바이옴 연구의 키</h3>
-                    <p>장 오가노이드는 실제 인간의 장벽처럼 구불구불한 융모(Villi)와 음와(Crypt) 구조를 입체적으로 갖추고 있습니다. 영양분이 흡수되는 표면적 기전뿐만 아니라, 크론병이나 궤양성 대장염 같은 염증성 장 질환(IBD)의 발병 원인을 환자 본인의 줄기세포로 만든 장 오가노이드로 추적할 수 있습니다.</p>
-                    <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
-                    <div class="expand-panel">
-                        <p style="font-weight: 800; margin-bottom: 8px; color: var(--text-primary);">[딥다이브: 유산균과의 공배양(Co-culture)]</p>
-                        <p style="font-size: 14px; color: var(--text-secondary);">인체 면역 세포의 70%는 장에 분포하며, 장내 미생물(Microbiome)과 끊임없이 소통합니다. 기존 평면 세포 배양에서는 장내 혐기성 세균(산소를 싫어하는 세균)을 배양할 수 없었으나, 3D 장 오가노이드 내부의 빈 공간(Lumen)은 산소가 차단된 환경이므로 실제 인간의 장처럼 유해균과 유익균을 주입하여 장벽 면역 반응을 90% 이상 유사하게 시뮬레이션 해냅니다.</p>
-                    </div>
-                </div>
-                <div class="tab-visual-frame">
-                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/350/800/500'" alt="Petri dish">
-                </div>
-            </div>
-        </div>
+    <div class="list-group">
+      <div class="list-row">
+        <button class="list-trigger" onclick="toggleList(this)">
+          <h3>1. 미니 뇌가 비디오 게임을 스스로 학습하다 (호주 Cortical Labs)</h3>
+          <span class="list-arrow">+</span>
+        </button>
+        <div class="list-content">
+          <div class="list-inner-layout">
+            <div>
+              <p style="margin-bottom:12px;">호주의 코티컬 랩스(Cortical Labs) 연구진은 약 80만 개의 신경 세포로 이루어진 인간 뇌 오가노이드를 전극이 촘촘히 박힌 고밀도 미세전극 배열(MEA) 칩 위에 배양했습니다. 이 시스템을 '디쉬브레인(DishBrain)'이라 명명했습니다.</p>
+              <p>연구진은 전기 신호의 위치와 주파수를 통해 고전 아케이드 게임인 '퐁(Pong)'의 공 위치를 뇌세포에 알려주었습니다. 놀랍게도 <strong>뇌 오가노이드는 단 5분 만에 뉴런의 시냅스 연결을 재구성하여 패들을 움직여 공을 쳐내는 법을 스스로 학습했습니다.</strong> 이는 실리콘 기반의 인공지능(AI)보다 전력 소모가 수백만 배 적으면서도 뛰어난 적응력을 지닌 '생물학적 컴퓨팅(Organoid Intelligence, OI)' 시대의 개막을 알린 역사적 실험입니다.</p>
+            </div>
+            <div style="border-radius:12px; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/111/600/400'" alt="Neural network graphic" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <div id="tumor" class="tab-box">
-            <div class="tab-grid-split">
-                <div class="tab-text-area">
-                    <h3>암 정복을 위한 환자 유래 아바타 (PDO)</h3>
-                    <p>수술이나 생검을 통해 채취한 환자의 실제 암 조직은 단 몇 주 만에 환자의 유전자 변이를 100% 보존한 '환자 유래 종양 오가노이드(Patient-Derived Organoid, PDO)'로 자라납니다. 이는 항암 치료 전, 환자에게 가장 부작용이 적고 잘 듣는 '단 하나의 표적 약'을 찾는 N-of-1(개인 맞춤) 의료의 핵심입니다.</p>
-                    <button class="ios-action-btn" onclick="togglePanel(this)">+ 심층 연구 펼쳐보기</button>
-                    <div class="expand-panel">
-                        <p style="font-weight: 800; margin-bottom: 8px; color: var(--text-primary);">[딥다이브: 면역 항암제 반응성 사전 예측]</p>
-                        <p style="font-size: 14px; color: var(--text-secondary);">기존 항암제가 암세포를 직접 죽인다면, 3세대 면역항암제(키트루다 등)는 환자의 면역세포를 활성화해 암을 공격하게 합니다. 하지만 환자별로 반응률이 20~30%에 불과하고 매우 고가입니다. 최근 연구진은 종양 오가노이드에 환자 본인의 T세포(면역세포)를 함께 배양하여, 면역항암제가 이 환자에게 효과가 있을지를 임상 투여 전 단 1주일 만에 정확히 사전 검증하는 데 성공했습니다.</p>
-                    </div>
-                </div>
-                <div class="tab-visual-frame">
-                    <img src="https://images.unsplash.com/photo-1579566346927-c68383817a25?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://picsum.photos/id/450/800/500'" alt="DNA">
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="list-row">
+        <button class="list-trigger" onclick="toggleList(this)">
+          <h3>2. 스스로 독을 뿜어내는 뱀독 오가노이드 (네덜란드 Hubrecht 연구소)</h3>
+          <span class="list-arrow">+</span>
+        </button>
+        <div class="list-content">
+          <div class="list-inner-layout">
+            <div>
+              <p style="margin-bottom:12px;">매년 전 세계에서 10만 명 이상이 뱀에 물려 사망하지만, 해독제(항독소)를 만드는 방식은 19세기에 머물러 있었습니다. 직접 위험하게 뱀의 독을 짜내어 말이나 양에게 주입한 뒤 그 혈청을 뽑아내는 잔인하고 비효율적인 방식이었습니다.</p>
+              <p>오가노이드의 선구자인 네덜란드의 한스 클레버스(Hans Clevers) 연구팀은 케이프 코브라의 맹독선(Venom gland) 세포를 채취해 배양 접시 위에서 <strong>'실제로 치명적인 독을 분비하는 뱀독선 오가노이드'</strong>를 사상 최초로 배양해 냈습니다. 이제 살아있는 뱀이나 말을 희생할 필요 없이, 실험실의 인큐베이터 안에서 가장 순도 높고 안전한 뱀독 펩타이드를 무한정 대량 생산하여 차세대 해독제를 저렴하게 개발할 수 있게 되었습니다.</p>
+            </div>
+            <div style="border-radius:12px; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1582506691459-7154944b059e?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/212/600/400'" alt="Snake in lab" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <section id="engineering" class="container ios-section">
-        <div class="section-header-grid">
-            <div>
-                <span class="mono-label">[02 / BASE ARCHITECTURE]</span>
-                <h2>THE ENGINEERING<br>OF COMPLEXITY.</h2>
-            </div>
-            <div>
-                <p>2차원의 평면 세포를 3차원의 생명체로 조각하는 3대 핵심 바이오 엔지니어링 기술</p>
-            </div>
-        </div>
+      <div class="list-row">
+        <button class="list-trigger" onclick="toggleList(this)">
+          <h3>3. 멀티 장기 칩으로 코로나19 치료제 검증 (미국 Wyss 연구소)</h3>
+          <span class="list-arrow">+</span>
+        </button>
+        <div class="list-content">
+          <div class="list-inner-layout">
+            <div>
+              <p style="margin-bottom:12px;">단일 오가노이드의 한계는 장기 간의 상호작용을 알 수 없다는 것입니다. 하버드 대학교 위스(Wyss) 연구소는 투명한 고분자 폴리머 칩 위에 <strong>폐, 심장, 간 오가노이드를 배열하고 인간의 혈관처럼 미세 유체 채널로 연결</strong>했습니다.</p>
+              <p>연구진은 이 칩의 '폐' 부분에 SARS-CoV-2(코로나19 바이러스)를 감염시킨 후, 개발 중인 항바이러스 신약을 투여했습니다. 약물이 폐에서 바이러스를 성공적으로 억제하는 동시에, 혈류를 타고 '간'으로 이동해 어떻게 대사 분해되며, 최종적으로 '심장' 오가노이드의 박동에 부정맥 등 부작용을 일으키지는 않는지 인체 전신의 연쇄 반응을 한 번에 완벽하게 모사하고 검증했습니다.</p>
+            </div>
+            <div style="border-radius:12px; overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/313/600/400'" alt="Microchip" style="width:100%; height:100%; object-fit:cover;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="bento-grid-3">
-            <div class="bento-card">
-                <h3>iPSCs<br>(유도만능줄기세포)</h3>
-                <p>2012년 노벨 생리의학상을 받은 야마나카 신야 교수의 기술입니다. 성인의 평범한 피부나 혈액 세포에 4가지 유전자 전사인자(Oct4, Sox2, Klf4, c-Myc)를 주입해 세포 시계를 배아 상태로 되돌립니다. 윤리적 문제 없이 뇌, 간, 심장 등 원하는 어떤 장기로든 무한정 분화시킬 수 있는 오가노이드의 절대적인 '원재료'입니다.</p>
-            </div>
-            <div class="bento-card">
-                <h3>Matrigel & ECM</h3>
-                <p>배양 접시 위에서 세포들이 평면으로 퍼지지 않고 둥글게 뭉쳐 입체적으로 자라게 하려면 단단한 지지체가 필요합니다. 라미닌(Laminin)과 콜라겐(Collagen) 등 인체의 세포 외 기질(ECM)과 완벽히 동일한 환경을 젤리 형태로 제공하는 '마트리겔(Matrigel)'이 세포의 3차원 조직화를 유도하는 뼈대 역할을 합니다.</p>
-            </div>
-            <div class="bento-card">
-                <h3>Dynamic<br>Bioreactors</h3>
-                <p>오가노이드가 1mm 이상 커지면 중심부의 세포는 산소와 영양분을 공급받지 못해 괴사합니다. 이를 막기 위해 지속적으로 회전하는 스피닝 플라스크(Spinning Flask)나 미세 유체 칩을 기반으로 한 바이오리엑터에 넣어 배양합니다. 이는 인체 내 혈류가 흐르면서 발생하는 물리적 전단 응력(Shear stress)을 모사하여 장기의 성숙도를 극대화합니다.</p>
-            </div>
-        </div>
-    </section>
+  <section id="newtech" class="container ios-section">
+    <div class="section-header-grid">
+      <div>
+        <span class="mono-label">[04 / NEXT GENERATION]</span>
+        <h2>NEXT-GENERATION<br />ENGINEERING.</h2>
+      </div>
+      <div>
+        <p>단일 세포 덩어리를 넘어선 '유기적 생명 시스템'으로의 진화 방향</p>
+      </div>
+    </div>
 
-    <section id="experiments" class="container ios-section">
-        <div class="section-header-grid">
-            <div>
-                <span class="mono-label">[03 / LAB EVIDENCE]</span>
-                <h2>EXPERIMENTS<br>IN ACTION.</h2>
-            </div>
-            <div>
-                <p>현재 전 세계 최상위 연구소(Nature, Cell 게재 등)에서 증명된 경이로운 실험 사례들</p>
-            </div>
-        </div>
+    <div class="bold-showcase-box">
+      <div class="showcase-split">
+        <div class="showcase-text">
+          <h3>Assembloids: 조립된 다중 생명체</h3>
+          <p>어셈블로이드(Assembloids)는 각기 따로 배양된 서로 다른 장기 오가노이드를 공간적으로 융합시켜, 인체의 복잡한 상호작용 회로를 재건하는 최첨단 기술입니다.<br /><br />예를 들어, 대뇌 신경 세포 모델인 <strong>'대뇌 피질 오가노이드'</strong>와 척수에서 근육으로 이어지는 <strong>'운동 신경 및 근육 오가노이드'</strong>를 체외에서 물리적으로 조립합니다. 시간이 지나면 두 오가노이드 사이로 실제 신경 축삭(Axon)이 뻗어나가 연결되며, 빛으로 대뇌를 자극하면 연결된 근육이 실제로 움찔거리며 수축하는 경이로운 현상을 관찰할 수 있습니다.</p>
+          <div class="highlight-badge-box">
+            <p>Key Insight: 지금까지 치료가 불가능했던 루게릭병(ALS)이나 조현병, 자폐 스펙트럼 장애와 같이 단일 장기의 문제가 아닌 '신경망 연결(Circuit)의 결함'에서 비롯되는 난치성 다중 시스템 질환의 근본적인 원인을 파악하고 치료제를 테스트할 수 있는 유일한 대안입니다.</p>
+          </div>
+        </div>
+        <div class="tab-visual-frame" style="height:380px;">
+          <img src="https://images.unsplash.com/photo-1530213786676-4189f175495e?q=80&w=1200" alt="Biotech Architecture" onerror="this.src='https://picsum.photos/800/600?grayscale'" />
+        </div>
+      </div>
+    </div>
 
-        <div class="list-group">
-            <div class="list-row">
-                <button class="list-trigger" onclick="toggleList(this)">
-                    <h3>1. 미니 뇌가 비디오 게임을 스스로 학습하다 (호주 Cortical Labs)</h3>
-                    <span class="list-arrow">+</span>
-                </button>
-                <div class="list-content">
-                    <div class="list-inner-layout">
-                        <div>
-                            <p style="margin-bottom: 12px;">호주의 코티컬 랩스(Cortical Labs) 연구진은 약 80만 개의 신경 세포로 이루어진 인간 뇌 오가노이드를 전극이 촘촘히 박힌 고밀도 미세전극 배열(MEA) 칩 위에 배양했습니다. 이 시스템을 '디쉬브레인(DishBrain)'이라 명명했습니다.</p>
-                            <p>연구진은 전기 신호의 위치와 주파수를 통해 고전 아케이드 게임인 '퐁(Pong)'의 공 위치를 뇌세포에 알려주었습니다. 놀랍게도 <strong>뇌 오가노이드는 단 5분 만에 뉴런의 시냅스 연결을 재구성하여 패들을 움직여 공을 쳐내는 법을 스스로 학습했습니다.</strong> 이는 실리콘 기반의 인공지능(AI)보다 전력 소모가 수백만 배 적으면서도 뛰어난 적응력을 지닌 '생물학적 컴퓨팅(Organoid Intelligence, OI)' 시대의 개막을 알린 역사적 실험입니다.</p>
-                        </div>
-                        <div style="border-radius:12px; overflow:hidden;"><img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/111/600/400'" alt="Neural network graphic" style="width:100%; height:100%; object-fit:cover;"></div>
-                    </div>
-                </div>
-            </div>
+    <div class="bento-grid-2">
+      <div class="wide-card">
+        <h3>Organ-on-a-Chip (장기 칩)</h3>
+        <p>생명공학과 반도체 미세 공정 기술의 만남입니다. 메모리 칩 크기의 폴리머 안에 마이크로미터 단위의 미세 유체관(Microfluidics)을 새겨 오가노이드에 혈류의 압력과 속도를 제공합니다. 진공 펌프를 달아 사람의 폐가 숨을 쉴 때 팽창하고 수축하는 물리적 장력(Mechanical strain)이나 장벽의 연동 운동까지 기계적으로 완벽히 모사합니다.</p>
+      </div>
+      <div class="wide-card">
+        <h3>3D Bioprinting (바이오 프린팅)</h3>
+        <p>오가노이드의 최대 한계는 '혈관의 부재'로 인해 크기를 3mm 이상 키우기 어렵다는 점입니다. 3D 바이오프린팅은 환자의 세포가 섞인 바이오 잉크(Bio-ink)와 탈세포화된 세포외기질(dECM)을 층층이 인쇄하여, 오가노이드 내부에 굵은 혈관과 구조적 지지체를 정교하게 심어 넣어 실제 장기 사이즈(Macro-scale)로 성장시키는 핵심 융합 기술입니다.</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="list-row">
-                <button class="list-trigger" onclick="toggleList(this)">
-                    <h3>2. 스스로 독을 뿜어내는 뱀독 오가노이드 (네덜란드 Hubrecht 연구소)</h3>
-                    <span class="list-arrow">+</span>
-                </button>
-                <div class="list-content">
-                    <div class="list-inner-layout">
-                        <div>
-                            <p style="margin-bottom: 12px;">매년 전 세계에서 10만 명 이상이 뱀에 물려 사망하지만, 해독제(항독소)를 만드는 방식은 19세기에 머물러 있었습니다. 직접 위험하게 뱀의 독을 짜내어 말이나 양에게 주입한 뒤 그 혈청을 뽑아내는 잔인하고 비효율적인 방식이었습니다.</p>
-                            <p>오가노이드의 선구자인 네덜란드의 한스 클레버스(Hans Clevers) 연구팀은 케이프 코브라의 맹독선(Venom gland) 세포를 채취해 배양 접시 위에서 <strong>'실제로 치명적인 독을 분비하는 뱀독선 오가노이드'</strong>를 사상 최초로 배양해 냈습니다. 이제 살아있는 뱀이나 말을 희생할 필요 없이, 실험실의 인큐베이터 안에서 가장 순도 높고 안전한 뱀독 펩타이드를 무한정 대량 생산하여 차세대 해독제를 저렴하게 개발할 수 있게 되었습니다.</p>
-                        </div>
-                        <div style="border-radius:12px; overflow:hidden;"><img src="https://images.unsplash.com/photo-1582506691459-7154944b059e?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/212/600/400'" alt="Snake in lab" style="width:100%; height:100%; object-fit:cover;"></div>
-                    </div>
-                </div>
-            </div>
+  <section id="proposals" class="container ios-section">
+    <div class="section-header-grid">
+      <div>
+        <span class="mono-label">[05 / FUTURE VISION]</span>
+        <h2>PROPOSED<br />UTILIZATION PLANS.</h2>
+      </div>
+      <div>
+        <p>우리 연구팀이 제안하는 오가노이드 기술의 4가지 파괴적 혁신 분야</p>
+      </div>
+    </div>
 
-            <div class="list-row">
-                <button class="list-trigger" onclick="toggleList(this)">
-                    <h3>3. 멀티 장기 칩으로 코로나19 치료제 검증 (미국 Wyss 연구소)</h3>
-                    <span class="list-arrow">+</span>
-                </button>
-                <div class="list-content">
-                    <div class="list-inner-layout">
-                        <div>
-                            <p style="margin-bottom: 12px;">단일 오가노이드의 한계는 장기 간의 상호작용을 알 수 없다는 것입니다. 하버드 대학교 위스(Wyss) 연구소는 투명한 고분자 폴리머 칩 위에 <strong>폐, 심장, 간 오가노이드를 배열하고 인간의 혈관처럼 미세 유체 채널로 연결</strong>했습니다.</p>
-                            <p>연구진은 이 칩의 '폐' 부분에 SARS-CoV-2(코로나19 바이러스)를 감염시킨 후, 개발 중인 항바이러스 신약을 투여했습니다. 약물이 폐에서 바이러스를 성공적으로 억제하는 동시에, 혈류를 타고 '간'으로 이동해 어떻게 대사 분해되며, 최종적으로 '심장' 오가노이드의 박동에 부정맥 등 부작용을 일으키지는 않는지 인체 전신의 연쇄 반응을 한 번에 완벽하게 모사하고 검증했습니다.</p>
-                        </div>
-                        <div style="border-radius:12px; overflow:hidden;"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&q=80&w=600" onerror="this.src='https://picsum.photos/id/313/600/400'" alt="Microchip" style="width:100%; height:100%; object-fit:cover;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="matrix-grid">
+      <div class="matrix-cell">
+        <h3> 정밀 맞춤 의료 (Precision Medicine)</h3>
+        <p>동일한 암이어도 환자마다 유전자 돌연변이가 다릅니다. 'Trial & Error(시행착오)' 방식의 기존 투약은 생명을 단축시킵니다.</p>
+        <ul>
+          <li><strong>사전 투약 스크리닝:</strong> 암 환자의 종양 조직을 일주일 내에 다량의 미니 아바타(PDO)로 배양한 뒤, 수십 종의 항암제 조합을 동시다발적으로 투여하여 가장 암세포 사멸률이 높은 '최적의 약물'을 선별.</li>
+          <li><strong>낭포성 섬유증(CF) 완치:</strong> 환자의 직장 세포로 만든 오가노이드를 통해 고가의 낭포성 섬유증 신약(CFTR 조절제)이 특정 환자에게 반응하는지 미리 확인하여 보험 재정 낭비와 시간 지연 방지.</li>
+        </ul>
+      </div>
 
-    <section id="newtech" class="container ios-section">
-        <div class="section-header-grid">
-            <div>
-                <span class="mono-label">[04 / NEXT GENERATION]</span>
-                <h2>NEXT-GENERATION<br>ENGINEERING.</h2>
-            </div>
-            <div>
-                <p>단일 세포 덩어리를 넘어선 '유기적 생명 시스템'으로의 진화 방향</p>
-            </div>
-        </div>
+      <div class="matrix-cell">
+        <h3> 희귀 및 감염병 질환 모델링</h3>
+        <p>동물 실험으로는 발병 기전을 재현할 수조차 없는 인간 고유의 난치성 질병을 모사하는 궁극의 플랫폼입니다.</p>
+        <ul>
+          <li><strong>뇌 질환 병리학:</strong> 알츠하이머 플라크 축적, 자폐증 발달 지연, 파킨슨병의 도파민 뉴런 손실 과정을 시험관 내에서 실시간(Real-time)으로 추적 및 억제제 발굴.</li>
+          <li><strong>신종 감염병 신속 대응:</strong> 코로나19, 지카, 에볼라 등 호흡기 및 신경계 감염병이 창궐할 때, 즉각적으로 인간 폐/뇌 오가노이드에 감염시켜 바이러스 침투 경로(수용체)를 파악하고 백신을 조기 개발.</li>
+        </ul>
+      </div>
 
-        <div class="bold-showcase-box">
-            <div class="showcase-split">
-                <div class="showcase-text">
-                    <h3>Assembloids: 조립된 다중 생명체</h3>
-                    <p>어셈블로이드(Assembloids)는 각기 따로 배양된 서로 다른 장기 오가노이드를 공간적으로 융합시켜, 인체의 복잡한 상호작용 회로를 재건하는 최첨단 기술입니다.<br><br>예를 들어, 대뇌 신경 세포 모델인 <strong>'대뇌 피질 오가노이드'</strong>와 척수에서 근육으로 이어지는 <strong>'운동 신경 및 근육 오가노이드'</strong>를 체외에서 물리적으로 조립합니다. 시간이 지나면 두 오가노이드 사이로 실제 신경 축삭(Axon)이 뻗어나가 연결되며, 빛으로 대뇌를 자극하면 연결된 근육이 실제로 움찔거리며 수축하는 경이로운 현상을 관찰할 수 있습니다.</p>
-                    <div class="highlight-badge-box">
-                        <p>Key Insight: 지금까지 치료가 불가능했던 루게릭병(ALS)이나 조현병, 자폐 스펙트럼 장애와 같이 단일 장기의 문제가 아닌 '신경망 연결(Circuit)의 결함'에서 비롯되는 난치성 다중 시스템 질환의 근본적인 원인을 파악하고 치료제를 테스트할 수 있는 유일한 대안입니다.</p>
-                    </div>
-                </div>
-                <div class="tab-visual-frame" style="height:380px;">
-                    <img src="https://images.unsplash.com/photo-1530213786676-4189f175495e?q=80&w=1200" alt="Biotech Architecture" onerror="this.src='https://picsum.photos/800/600?grayscale'">
-                </div>
-            </div>
-        </div>
+      <div class="matrix-cell">
+        <h3> 재생 의학 및 인공 장기 이식</h3>
+        <p>기증자의 장기 부족 문제와 타인 장기 이식 시 발생하는 평생의 면역 억제제 복용 고통을 해결합니다.</p>
+        <ul>
+          <li><strong>오가노이드 패치(Patch) 이식:</strong> 궤양성 대장염으로 손상된 장 점막이나 심근경색으로 괴사한 심장 부위에, 환자 본인의 줄기세포로 키운 '건강한 오가노이드 패치'를 반창고처럼 덧대어 이식하여 본래 기능 완벽 회복.</li>
+          <li><strong>오가노이드 바이오뱅크:</strong> 건강한 상태의 다양한 인간 세포 조직을 표준화된 오가노이드 형태로 대량 배양하고 영구 동결 보관(Bio-Bank)하여, 응급 환자 발생 시 기성품(Off-the-shelf)처럼 즉시 해동하여 이식 치료에 활용.</li>
+        </ul>
+      </div>
 
-        <div class="bento-grid-2">
-            <div class="wide-card">
-                <h3>Organ-on-a-Chip (장기 칩)</h3>
-                <p>생명공학과 반도체 미세 공정 기술의 만남입니다. 메모리 칩 크기의 폴리머 안에 마이크로미터 단위의 미세 유체관(Microfluidics)을 새겨 오가노이드에 혈류의 압력과 속도를 제공합니다. 진공 펌프를 달아 사람의 폐가 숨을 쉴 때 팽창하고 수축하는 물리적 장력(Mechanical strain)이나 장벽의 연동 운동까지 기계적으로 완벽히 모사합니다.</p>
-            </div>
-            <div class="wide-card">
-                <h3>3D Bioprinting (바이오 프린팅)</h3>
-                <p>오가노이드의 최대 한계는 '혈관의 부재'로 인해 크기를 3mm 이상 키우기 어렵다는 점입니다. 3D 바이오프린팅은 환자의 세포가 섞인 바이오 잉크(Bio-ink)와 탈세포화된 세포외기질(dECM)을 층층이 인쇄하여, 오가노이드 내부에 굵은 혈관과 구조적 지지체를 정교하게 심어 넣어 실제 장기 사이즈(Macro-scale)로 성장시키는 핵심 융합 기술입니다.</p>
-            </div>
-        </div>
-    </section>
+      <div class="matrix-cell">
+        <h3> 신약 개발 비용 절감 및 독성 스크리닝</h3>
+        <p>하나의 신약이 나오기까지 10년의 시간과 2조 원이 듭니다. 오가노이드는 전임상 단계의 병목 현상을 해소합니다.</p>
+        <ul>
+          <li><strong>동물 실험(In vivo)의 전면 대체:</strong> 쥐와 인간의 유전자 일치율 한계로 인한 임상 실패(약 90%)를 줄이고, 간 독성, 심장 부정맥 등 인체 치명적 부작용을 초기 단계에서 100% 필터링.</li>
+          <li><strong>초고속 대량 스크리닝 (HTS):</strong> 로봇 공학과 결합하여 384-well 플레이트 위에 배양된 수천 개의 오가노이드에 화합물 라이브러리를 동시 투여 및 AI 이미지 분석을 통해 수백만 개의 후보 물질 중 유효 성분(Hit)을 수일 내 도출.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="proposals" class="container ios-section">
-        <div class="section-header-grid">
-            <div>
-                <span class="mono-label">[05 / FUTURE VISION]</span>
-                <h2>PROPOSED<br>UTILIZATION PLANS.</h2>
-            </div>
-            <div>
-                <p>우리 연구팀이 제안하는 오가노이드 기술의 4가지 파괴적 혁신 분야</p>
-            </div>
-        </div>
+  <footer class="container">
+    <span class="logo">ORGANOID.SITE</span>
+    <p>&copy; 2026 ORGANOID.SITE. ALL RIGHTS RESERVED. THE NEXT PARADIGM OF HUMAN LIFE.</p>
+  </footer>
 
-        <div class="matrix-grid">
-            <div class="matrix-cell">
-                <h3> 정밀 맞춤 의료 (Precision Medicine)</h3>
-                <p>동일한 암이어도 환자마다 유전자 돌연변이가 다릅니다. 'Trial & Error(시행착오)' 방식의 기존 투약은 생명을 단축시킵니다.</p>
-                <ul>
-                    <li><strong>사전 투약 스크리닝:</strong> 암 환자의 종양 조직을 일주일 내에 다량의 미니 아바타(PDO)로 배양한 뒤, 수십 종의 항암제 조합을 동시다발적으로 투여하여 가장 암세포 사멸률이 높은 '최적의 약물'을 선별.</li>
-                    <li><strong>낭포성 섬유증(CF) 완치:</strong> 환자의 직장 세포로 만든 오가노이드를 통해 고가의 낭포성 섬유증 신약(CFTR 조절제)이 특정 환자에게 반응하는지 미리 확인하여 보험 재정 낭비와 시간 지연 방지.</li>
-                </ul>
-            </div>
+  <script>
+    function openSegment(tabName, button) {
+      const contents = document.querySelectorAll(".tab-box");
+      const buttons = document.querySelectorAll(".segment-btn");
 
-            <div class="matrix-cell">
-                <h3>🔬희귀 및 감염병 질환 모델링</h3>
-                <p>동물 실험으로는 발병 기전을 재현할 수조차 없는 인간 고유의 난치성 질병을 모사하는 궁극의 플랫폼입니다.</p>
-                <ul>
-                    <li><strong>뇌 질환 병리학:</strong> 알츠하이머 플라크 축적, 자폐증 발달 지연, 파킨슨병의 도파민 뉴런 손실 과정을 시험관 내에서 실시간(Real-time)으로 추적 및 억제제 발굴.</li>
-                    <li><strong>신종 감염병 신속 대응:</strong> 코로나19, 지카, 에볼라 등 호흡기 및 신경계 감염병이 창궐할 때, 즉각적으로 인간 폐/뇌 오가노이드에 감염시켜 바이러스 침투 경로(수용체)를 파악하고 백신을 조기 개발.</li>
-                </ul>
-            </div>
+      contents.forEach((content) => content.classList.remove("active"));
+      buttons.forEach((btn) => btn.classList.remove("active"));
 
-            <div class="matrix-cell">
-                <h3> 재생 의학 및 인공 장기 이식</h3>
-                <p>기증자의 장기 부족 문제와 타인 장기 이식 시 발생하는 평생의 면역 억제제 복용 고통을 해결합니다.</p>
-                <ul>
-                    <li><strong>오가노이드 패치(Patch) 이식:</strong> 궤양성 대장염으로 손상된 장 점막이나 심근경색으로 괴사한 심장 부위에, 환자 본인의 줄기세포로 키운 '건강한 오가노이드 패치'를 반창고처럼 덧대어 이식하여 본래 기능 완벽 회복.</li>
-                    <li><strong>오가노이드 바이오뱅크:</strong> 건강한 상태의 다양한 인간 세포 조직을 표준화된 오가노이드 형태로 대량 배양하고 영구 동결 보관(Bio-Bank)하여, 응급 환자 발생 시 기성품(Off-the-shelf)처럼 즉시 해동하여 이식 치료에 활용.</li>
-                </ul>
-            </div>
+      document.getElementById(tabName).classList.add("active");
+      button.classList.add("active");
+    }
 
-            <div class="matrix-cell">
-                <h3> 신약 개발 비용 절감 및 독성 스크리닝</h3>
-                <p>하나의 신약이 나오기까지 10년의 시간과 2조 원이 듭니다. 오가노이드는 전임상 단계의 병목 현상을 해소합니다.</p>
-                <ul>
-                    <li><strong>동물 실험(In vivo)의 전면 대체:</strong> 쥐와 인간의 유전자 일치율 한계로 인한 임상 실패(약 90%)를 줄이고, 간 독성, 심장 부정맥 등 인체 치명적 부작용을 초기 단계에서 100% 필터링.</li>
-                    <li><strong>초고속 대량 스크리닝 (HTS):</strong> 로봇 공학과 결합하여 384-well 플레이트 위에 배양된 수천 개의 오가노이드에 화합물 라이브러리를 동시 투여 및 AI 이미지 분석을 통해 수백만 개의 후보 물질 중 유효 성분(Hit)을 수일 내 도출.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    function togglePanel(button) {
+      const panel = button.nextElementSibling;
+      const isOpen = panel.classList.toggle("open");
+      button.innerText = isOpen ? "- 심층 연구 접기" : "+ 심층 연구 펼쳐보기";
+    }
 
-    <footer class="container">
-        <span class="logo">ORGANOID.SITE</span>
-        <p>&copy; 2026 ORGANOID.SITE. ALL RIGHTS RESERVED. THE NEXT PARADIGM OF HUMAN LIFE.</p>
-    </footer>
-
-    <script>
-        // 1. iOS Control Tabs Trigger
-        function openSegment(tabName) {
-            var contents = document.getElementsByClassName("tab-box");
-            var buttons = document.getElementsByClassName("segment-btn");
-            
-            for (var i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-                buttons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            event.currentTarget.classList.add("active");
-        }
-
-        // 2. Expand Hidden Panel
-        function togglePanel(button) {
-            var panel = button.nextElementSibling;
-            if (panel.classList.contains("open")) {
-                panel.classList.remove("open");
-                button.innerText = "+ 심층 연구 펼쳐보기";
-            } else {
-                panel.classList.add("open");
-                button.innerText = "- 심층 연구 접기";
-            }
-        }
-
-        // 3. Structural List Accordion Tracker
-        function toggleList(header) {
-            var row = header.parentElement;
-            row.classList.toggle("active");
-        }
-    </script>
+    function toggleList(header) {
+      const row = header.closest(".list-row");
+      row.classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
-
